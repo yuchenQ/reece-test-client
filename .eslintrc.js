@@ -1,9 +1,8 @@
 module.exports = {
-  parser: 'babel-eslint',
   env: {
     browser: true,
     es6: true,
-    "jest": true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -21,9 +20,20 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-  ],
+  plugins: ['react'],
   rules: {
+    'prefer-promise-reject-errors': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': [
+      2,
+      {
+        devDependencies: [
+          '**/*.stories.jsx',
+          '**/*.test.*',
+          '**/webpack.config.*.js',
+        ],
+      },
+    ],
   },
 };
