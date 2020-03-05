@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -21,7 +19,7 @@ const Header = styled.section``;
 
 const Body = styled.section``;
 
-function Page({ className, header, children }) {
+export default function Page({ className, header, children }) {
   return (
     <StyledPage>
       <Layout className={className}>
@@ -41,5 +39,3 @@ Page.propTypes = {
   header: PropTypes.node.isRequired,
   children: PropTypes.node.isRequired,
 };
-
-export default Page;
