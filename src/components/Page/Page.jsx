@@ -13,6 +13,7 @@ const StyledPage = styled.div`
 const Layout = styled.div`
   display: grid;
   grid-row-gap: 2rem;
+  padding: 2rem;
 `;
 
 const Header = styled.section``;

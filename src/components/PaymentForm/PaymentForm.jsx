@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, InputNumber, DatePicker, message } from 'antd';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { capitalize } from '../../helpers';
 import { createNewPayslips } from '../../apis';
@@ -18,7 +19,7 @@ const tailLayout = {
   wrapperCol: { offset: 10, span: 16 },
 };
 
-export default function PaymentForm() {
+export default function PaymentForm({ setPayslip }) {
   const [form] = Form.useForm();
 
   const onFinish = async fields => {
@@ -33,6 +34,9 @@ export default function PaymentForm() {
       const payslipInfo = computePayslip(values);
 
       await createNewPayslips(payslipInfo);
+
+      message.success('Successfully generated a new payslip!');
+      setPayslip(payslipInfo);
     } catch (error) {
       if (error) {
         const { data } = error;
@@ -50,6 +54,8 @@ export default function PaymentForm() {
 
   const onReset = () => {
     form.resetFields();
+
+    setPayslip();
   };
 
   return (
@@ -170,3 +176,7 @@ export default function PaymentForm() {
     </Form>
   );
 }
+
+PaymentForm.propTypes = {
+  setPayslip: PropTypes.func.isRequired,
+};
