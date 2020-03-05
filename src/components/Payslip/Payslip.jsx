@@ -45,7 +45,7 @@ function Payslip({ payslip }) {
 
   return (
     <StyledPayslip>
-      <Title>
+      <Title data-testid="payslip-title">
         The payslip for:&nbsp;
         <strong>
           {firstName}

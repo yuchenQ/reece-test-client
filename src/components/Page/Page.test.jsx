@@ -1,14 +1,14 @@
 /** @format */
 
 import React from 'react';
-import {render, cleanup} from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import Page from './Page';
 
-describe('', () => {
+describe('Page', () => {
   let getByTestId;
 
   beforeEach(() => {
-    ({getByTestId} = render(
+    ({ getByTestId } = render(
       <Page header={<div>header</div>}>
         <div>body</div>
       </Page>,
