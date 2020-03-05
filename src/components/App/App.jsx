@@ -1,12 +1,18 @@
 import React from 'react';
-import { Button } from 'antd';
+import styled from 'styled-components';
+import PaymentForm from '../PaymentForm/PaymentForm';
+import Payslip from '../Payslip';
+import Page from '../Page';
 
-function App() {
+const Header = styled.h1`
+  text-align: center;
+`;
+
+export default function App() {
   return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-    </div>
+    <Page header={<Header>Employee Information</Header>}>
+      <PaymentForm />
+      <Payslip />
+    </Page>
   );
 }
-
-export default App;
