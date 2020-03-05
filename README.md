@@ -9,7 +9,7 @@ Or run ```git clone https://github.com/yuchenQ/reece-test-server.git <target_fol
 
 ## Overview
 
-React, Styled-components, Ant Design, Jest Unit Test (@testing-library/react), axios, Eslint, Prettier.
+React, Styled-components, Ant Design, Jest Unit Test (@testing-library/react), Axios, Eslint, Prettier.
 
 ## Browser Compatibility
 
@@ -40,8 +40,6 @@ React, Styled-components, Ant Design, Jest Unit Test (@testing-library/react), a
 - Tool: Webpack, Webpack Dev Server
 
 ## Running tests
-
-1. `npm run test` to run unit test
 
 ### 1. Linting
 
