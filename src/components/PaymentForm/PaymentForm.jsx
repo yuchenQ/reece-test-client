@@ -1,7 +1,10 @@
 import React from 'react';
-import { Form, Input, Button, InputNumber, DatePicker } from 'antd';
+import { Form, Input, Button, InputNumber, DatePicker, message } from 'antd';
 import moment from 'moment';
 import { capitalize } from '../../helpers';
+import { createNewPayslips } from '../../apis';
+import computePayslip from './computePayslip';
+import { ALREADY_PAID } from '../../errors';
 
 const { Item } = Form;
 const { MonthPicker } = DatePicker;
@@ -18,19 +21,31 @@ const tailLayout = {
 export default function PaymentForm() {
   const [form] = Form.useForm();
 
-  const onFinish = fields => {
-    const values = {
-      ...fields,
-      firstName: capitalize(fields.firstName),
-      lastName: capitalize(fields.lastName),
-      payPeriod: fields.payPeriod.format('YYYY-MM'),
-    };
+  const onFinish = async fields => {
+    try {
+      const values = {
+        ...fields,
+        firstName: capitalize(fields.firstName),
+        lastName: capitalize(fields.lastName),
+        payPeriod: fields.payPeriod.format('YYYY-MM'),
+      };
 
-    console.log(values);
-  };
+      const payslipInfo = computePayslip(values);
 
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
+      await createNewPayslips(payslipInfo);
+    } catch (error) {
+      if (error) {
+        const { data } = error;
+
+        if (data.type && data.type === ALREADY_PAID) {
+          message.error(data.message);
+
+          return;
+        }
+      }
+
+      message.error('Unknown error occurs!');
+    }
   };
 
   const onReset = () => {
@@ -38,13 +53,7 @@ export default function PaymentForm() {
   };
 
   return (
-    <Form
-      {...layout}
-      form={form}
-      name="control-hooks"
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
+    <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
       <Item
         name="firstName"
         label="First Name"
