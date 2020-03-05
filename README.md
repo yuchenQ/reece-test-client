@@ -2,8 +2,8 @@
 
 ## Important
 
-This is only the client of the whole application, if you want to experience/ check the whole functionalities of it, please pull the
-[server](https://github.com/yuchenQ/reece-test-server)
+- This is only the client of the whole application.
+- If you want to experience/ check the whole functionalities of it, please pull the [server](https://github.com/yuchenQ/reece-test-server)
 
 Or run ```git clone https://github.com/yuchenQ/reece-test-server.git <target_folder>``` to make a quick pull
 
