@@ -1,6 +1,11 @@
 {
   "name": "reece-test-client",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "A React application for Reece code challenge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuchenQ/reece-test-client.git"
+  },
   "private": true,
   "scripts": {
     "start": "PORT=8080 react-app-rewired start",

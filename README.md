@@ -2,7 +2,7 @@
 
 ## Important
 
-This is only the client of the whole application, if you want to experience/ check the whole functionalities of it, please pull the server:
+This is only the client of the whole application, if you want to experience/ check the whole functionalities of it, please pull the
 [server](https://github.com/yuchenQ/reece-test-server)
 
 Or run ```git clone https://github.com/yuchenQ/reece-test-server.git <target_folder>``` to make a quick pull
@@ -35,7 +35,7 @@ React, Styled-components, Ant Design, Jest Unit Test (@testing-library/react), a
 ### 3. Running locally
 
 1. `npm run start` to start the hot-reloading development server
-2. open http://localhost:8080 to open the site in your favorite browser
+2. open `http://localhost:8080` to open the site in your favorite browser
 
 - Tool: Webpack, Webpack Dev Server
 
