@@ -1,4 +1,4 @@
-const DICTIONARY = {
+export const DICTIONARY = {
   firstName: 'First Name',
   lastName: 'Last Name',
   payPeriod: 'Pay Period',
